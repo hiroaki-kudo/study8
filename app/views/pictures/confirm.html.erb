@@ -1,0 +1,9 @@
+<h2>下記情報を本当に作成しても良いですか？</h2>
+<%= form_with(model: @picture , local: true ) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <p>タイトル：<%= @picture.title %></p>
+  <p>本文：<%= @picture.content %></p>
+  <%= form.submit "登録する" %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>
