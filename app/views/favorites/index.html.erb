@@ -1,0 +1,17 @@
+<h1>InstaClone</h1>
+<h2>お気に入り一覧</h2>
+    <table>
+      <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>投稿者</th>
+      </tr>
+        <% @favorite.each do |favorite| %>
+          <tr>
+            <td><%= favorite.picture.title %></td>
+            <td><%= favorite.picture.content %></td>
+            <td><%= favorite.picture.user.name %></td>
+          </tr>
+        <% end %>
+    </table>
+    <%= link_to '一覧画面へ', pictures_path %>
