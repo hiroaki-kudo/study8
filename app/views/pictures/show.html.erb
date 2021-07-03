@@ -1,4 +1,11 @@
 <h1>詳細画面</h1>
   <p>タイトル：<%= @picture.title %></p>
   <p>コンテント：<%= @picture.content %></p>
+  <% unless @picture.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id),method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id),method: :post, class: 'btn-primary' %>
+    <% end %>
+  <% end %>
   <p><%= link_to '一覧画面へ', pictures_path %></p>
