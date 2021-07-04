@@ -1,6 +1,10 @@
 <h1>詳細画面</h1>
   <p>タイトル：<%= @picture.title %></p>
   <p>コンテント：<%= @picture.content %></p>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @picture.image.url %>
+  </p>
   <% unless @picture.user_id == current_user.id %>
     <% if @favorite.present? %>
       <%= link_to 'お気に入り解除', favorite_path(id: @favorite.id),method: :delete, class: 'btn btn-danger' %>

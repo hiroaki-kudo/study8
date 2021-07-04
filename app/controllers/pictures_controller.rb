@@ -42,7 +42,7 @@ class PicturesController < ApplicationController
   end
   private
   def params_picture
-    params.require(:picture).permit(:title, :content)
+    params.require(:picture).permit(:title, :content, :image, :image_cache)
   end
   def set_picture
     @picture = Picture.find(params[:id])
